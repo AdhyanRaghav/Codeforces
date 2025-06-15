@@ -1,1 +1,42 @@
-
+import java.util.*;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+ 
+        while (t-- > 0) {
+            long k = sc.nextLong();
+            long a = sc.nextLong();
+            long b = sc.nextLong();
+            long x = sc.nextLong();
+            long y = sc.nextLong();
+ 
+            long ans = 0;
+            
+            if (x < y || (x == y && a <= b)) {
+                if (k >= a) {
+                    long cntA = (k - a) / x + 1;
+                    ans += cntA;
+                    k -= cntA * x;
+                }
+                if (k >= b) {
+                    long cntB = (k - b) / y + 1;
+                    ans += cntB;
+                }
+            } else {
+                if (k >= b) {
+                    long cntB = (k - b) / y + 1;
+                    ans += cntB;
+                    k -= cntB * y;
+                }
+                if (k >= a) {
+                    long cntA = (k - a) / x + 1;
+                    ans += cntA;
+                }
+            }
+ 
+            System.out.println(ans);
+        }
+    }
+}
