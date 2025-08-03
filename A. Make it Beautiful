@@ -1,1 +1,70 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+
+
+            boolean allEqual = true;
+            for (int i = 1; i < n; i++) {
+                if (arr[i] != arr[0]) {
+                    allEqual = false;
+                    break;
+                }
+            }
+            if (allEqual) {
+                System.out.println("NO");
+                continue;
+            }
+
+
+            Arrays.sort(arr);
+            for (int i = 0; i < n / 2; i++) {
+                int temp = arr[i];
+                arr[i] = arr[n - 1 - i];
+                arr[n - 1 - i] = temp;
+            }
+
+
+            int sum = arr[0];
+            boolean beautiful = true;
+
+            for (int i = 1; i < n; i++) {
+                if (arr[i] == sum) {
+                    int conflictIndex = i;
+
+
+                    int j = i + 1;
+                    while (j < n && arr[j] == arr[i]) j++;
+
+                    if (j == n) {
+                        beautiful = false;
+                        break;
+                    }
+
+
+                    int temp = arr[conflictIndex];
+                    arr[conflictIndex] = arr[j];
+                    arr[j] = temp;
+                }
+
+                sum += arr[i];
+            }
+
+            if (!beautiful) {
+                System.out.println("NO");
+            } else {
+                System.out.println("YES");
+                for (int x : arr) System.out.print(x + " ");
+                System.out.println();
+            }
+        }
+    }
+}
 
