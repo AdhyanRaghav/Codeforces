@@ -1,1 +1,28 @@
-
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+ 
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+ 
+ 
+	int t;
+	cin >> t;
+ 
+	while(t--){
+ 
+		long long a;long long n;
+		cin >> a >> n;
+ 
+		long long rem=n%4;
+        for(long long i=1;i<=rem;i++){
+            if(a%2==0){
+                a=a-(n-rem+i);
+            }else{
+                a=a+(n-rem+i);
+            }
+        }
+        cout << a << "\n";
+	}
+}
