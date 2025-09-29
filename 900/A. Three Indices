@@ -1,1 +1,41 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	int t;
+	cin>>t;
+
+	while(t--){
+		int n;
+		cin>>n;
+
+		vector<int>arr(n);
+
+		for(int i=0;i<n;i++){
+			cin>>arr[i];	
+		}
+
+		int i=0;int j=1;int k=2;
+		int found=false;
+
+		while(i<j<k && k<arr.size()){
+			if(arr[i]<arr[j] && arr[j]>arr[k]){
+				found=true;
+				cout<<"YES\n"<<i+1<<" "<<j+1<<" "<<k+1;
+				break;
+			}else{
+				i++;
+				j++;
+				k++;
+			}
+		}
+		if(!found) cout<<"NO";
+		cout<<"\n";
+	}
+}
