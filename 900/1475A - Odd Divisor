@@ -1,1 +1,38 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	int t;
+	cin>>t;
+
+	while(t--){
+		long long int n;
+		cin>>n;
+
+		bool div=true;
+
+
+		if(n%2!=0){
+			div=true;
+		}else{
+			while(n%2==0){
+				if(n/2==1){
+					div=false;
+					break;
+				}
+				n=n/2;
+
+			}
+		}
+		if(n/2!=1) div=true;
+
+		if(div) cout<<"YES\n";
+		else cout<<"NO\n";
+	}
+}
