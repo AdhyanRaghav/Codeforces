@@ -1,1 +1,58 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	int t;
+	cin>>t;
+
+	while(t--){
+
+		string s;
+		cin>>s;
+
+		int zero=0;
+		int one=0;
+
+
+		for(char c:s){
+			if(c=='0') zero++;
+			else one++;
+		}
+		string a;
+
+		for(char c:s){
+			if(c=='0' && one>0){
+				a.append("1");
+				one--;
+			}else if(c=='1' && zero>0){
+				a.append("0");
+				zero--;
+			}else if(c=='0' && one==0){
+				a.append("0");
+			}else if(c=='1' && zero==0){
+				a.append("1");
+			}
+		}
+
+		int count=0;
+
+		int i=0;
+		while(i<a.size()){
+			if(a[i]==s[i]){
+				while(s[i]==a[i]){
+					a.erase(i,1);
+					count++;	
+				}
+			}
+			i++;
+		}
+
+		cout<<count<<"\n";
+	}
+}
