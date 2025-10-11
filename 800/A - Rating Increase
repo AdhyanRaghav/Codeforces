@@ -1,1 +1,47 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+
+	int t;
+	cin>>t;
+
+	while(t--){
+
+		string s;
+		cin>>s;
+		
+		string a;
+		a.push_back(s[0]);
+
+		int i=1;
+
+		while(i<s.size() && s[i]=='0'){
+		
+			a.append("0");
+			i++;
+		}
+
+		string b = s.substr(i);
+
+		if (a.empty() || b.empty()) {
+            cout << -1 << "\n";
+            continue;
+        }
+
+		long long num=std::stoll(b);
+		long long num2=std::stoll(a);
+
+		if(num2<num){
+			cout<<num2<<" "<<num<<"\n";
+		}else{
+			cout<<-1<<"\n";
+		}
+	}
+}
+
