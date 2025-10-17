@@ -1,1 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+int main(){
+ 
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+ 
+		int n;
+		int k;
+		cin>>n>>k;
+ 
+		vector<int>arr(n);
+		
+		for(int i=0;i<arr.size();i++){
+		    cin>>arr[i];
+		}
 
+		int x=arr[k-1];
+		int count=0;
+		
+		for(int i=0;i<arr.size();i++){
+		    if(arr[i]>=x){
+		        if(arr[i]>0) count++;
+		    }
+		}
+		
+		cout<<count<<"\n";
+		
+	
+}
