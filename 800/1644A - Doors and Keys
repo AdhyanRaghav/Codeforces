@@ -1,1 +1,57 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+int main(){
+ 
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	
+	int t;
+	cin>>t;
+	
+	while(t--){
+		string s;
+		cin>>s;
+		
+		set<char> Set;
+
+		bool b=true;
+		
+		for(char c:s){
+		    if(c=='r' || c=='g' || c=='b'){
+		        Set.insert(c);
+		    }else{
+		        if(c=='R'){
+		           if(Set.find('r')!=Set.end()){
+		           	b=true;
+		           }else{
+		           	b=false;
+		           	break;
+		           }
+		        }else if(c=='G'){
+		        	if(Set.find('g')!=Set.end()){
+		           	b=true;
+		           }else{
+		           	b=false;
+		           	break;
+		           }
+		        }else{
+		        	if(Set.find('b')!=Set.end()){
+		           	b=true;
+		           }else{
+		           	b=false;
+		           	break;
+		           }
+		        }
+		    }
+		}
+
+		if(b){
+			cout<<"YES\n";
+		}else{
+			cout<<"NO\n";
+		}
+	}
+}
