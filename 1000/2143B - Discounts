@@ -1,1 +1,66 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+int main(){
+ 
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	
+	int t;
+	cin>>t;
+	
+	while(t--){
+		long n;
+		long d;
 
+		cin>>n>>d;
+
+		vector<long>a(n);
+		vector<long>b(d);
+
+		for (long i = 0; i < a.size(); i++)
+		{
+			cin>>a[i];
+		}
+
+		for (long i = 0; i < b.size(); i++)
+		{
+			cin>>b[i];
+		}
+
+		sort(a.rbegin(),a.rend());
+		sort(b.begin(),b.end());
+
+		long long cnt=0;
+
+		long long i=0;
+		long long j=0;
+
+		while(i<a.size() && j<b.size()){
+			
+				if(b[j]==1){
+					i++;
+					j++;
+				}else{
+					int end=i+b[j]-1;
+					while(i<end && i<n){
+						cnt+=a[i];
+						i++;
+					}
+					if(i<n){
+						i++;	
+						j++;
+					}
+				}
+			
+		}
+		while(i<n){
+			cnt+=a[i];
+			i++;
+		}
+
+		cout<<cnt<<"\n";
+
+	}
+}
