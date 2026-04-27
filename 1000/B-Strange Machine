@@ -1,1 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+int main(){
+ 
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	
+	int t;
+	cin>>t;
+	
+	while(t--){
+		long long n;
+		long long q;
 
+		cin>>n>>q;
+
+		string s;
+		cin>>s;
+
+		long long cntA=0;
+		long long cntB=0;
+
+		for(char c:s){
+			if(c=='A'){
+				cntA++;
+			}else{
+				cntB++;
+			}
+		}
+
+
+		for(int i=0;i<q;i++){
+			long long a;
+			cin>>a;
+
+			if(cntB==0){
+				cout<<a<<endl;
+				continue;
+			}
+
+			long long pos=0;
+
+			long long ans=0;
+
+			while(a>0){
+				if(s[pos]=='B'){
+					a/=2;
+				}else{
+					a--;
+				}
+
+				ans++;
+
+				pos=(pos+1)%n;
+			}
+
+			cout<<ans<<endl;
+		}
+	}
+}
